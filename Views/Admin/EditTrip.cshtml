@@ -1,0 +1,50 @@
+﻿@model BRTS.Web.Models.Trip
+
+@{
+    ViewData["Title"] = "EditTrip";
+    Layout = "~/Views/Shared/AdminLayouts/_AdminLayout.cshtml";
+}
+
+<h1>EditTrip</h1>
+
+<h4>Trip</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form action="EditTripRequest" method="post">
+            <input type="hidden" value="@Model.TripId" name="TripId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TripId" />
+            <div class="form-group">
+                <label asp-for="TripGoingFrom" class="control-label"></label>
+                <input asp-for="TripGoingFrom" name="TripGoingFrom" value="@Model.TripGoingFrom" class="form-control" />
+                <span asp-validation-for="TripGoingFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripDestination" class="control-label"></label>
+                <input asp-for="TripDestination" name="TripDestination" value="@Model.TripDestination" class="form-control" />
+                <span asp-validation-for="TripDestination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateAndTime" class="control-label"></label>
+                <input asp-for="StartDateAndTime" name="StartDateAndTime" value="@Model.StartDateAndTime" class="form-control" />
+                <span asp-validation-for="StartDateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateAndTime" class="control-label"></label>
+                <input asp-for="EndDateAndTime" name="EndDateAndTime" value="@Model.EndDateAndTime" class="form-control" />
+                <span asp-validation-for="EndDateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripName" class="control-label"></label>
+                <input asp-for="TripName" name="TripName" value="@Model.TripName" class="form-control" />
+                <span asp-validation-for="TripName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>

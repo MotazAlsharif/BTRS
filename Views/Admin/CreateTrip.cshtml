@@ -1,0 +1,54 @@
+﻿@model List<BRTS.Web.Models.Bus>
+ 
+@{
+    ViewData["Title"] = "CreateTrip";
+    Layout = "~/Views/Shared/AdminLayouts/_AdminLayout.cshtml";
+}
+<h1>CreateTrip DashBoard</h1>
+<div style="margin:100px">
+<form class="form-contact" action="AddNewTripRequest" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="TripName" id="TripName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="TripName">
+            </div>
+        </div>
+            <fieldset name="BusId" id="BusId">
+            <legend name="BusId" id="BusId"> Bus :</legend>
+            
+            @foreach (var bus in Model)
+            {
+                <label for="@bus.BusId">@bus.BusId</label>
+                    <input name="BusId" id="BusId"  type="radio" id="@bus.BusId" name="@bus.BusId" value="@bus.BusId">
+            }
+          
+        </fieldset>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="TripGoingFrom" id="TripGoingFrom" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="TripGoingFrom">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="TripDestination" id="TripDestination" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="TripDestination">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="StartDateAndTime" id="StartDateAndTime" type="datetime-local" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="StartDateAndTime">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="EndDateAndTime" id="EndDateAndTime" type="datetime-local" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="EndDateAndTime">
+            </div>
+        </div>
+        
+
+    </div>
+    <div>
+        <button style="margin:10px;" type="submit" class="btn slider-btn " data-animation="bounceIn" data-delay="1s"> Add New Trip</button>
+    </div>
+
+</form>
+</div>

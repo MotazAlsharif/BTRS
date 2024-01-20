@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "AddNewBus";
+    Layout = "~/Views/Shared/AdminLayouts/_AdminLayout.cshtml";
+}
+<form class="form-contact" action="AddNewBusRequest" method="post" enctype="multipart/form-data">
+    <div class="row">
+        
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="TripId" id="TripId" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="TripId">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="Captin_Id" id="Captin_Id" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Captin_Id">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="TotalSeats" id="TotalSeats" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="TotalSeats">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <input class="form-control" name="AvailabelSeats" id="AvailabelSeats" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="AvailabelSeats">
+            </div>
+        </div>
+       
+
+    </div>
+    <div>
+        <button style="margin:10px;" type="submit" class="btn slider-btn " data-animation="bounceIn" data-delay="1s">Add New Bus</button>
+    </div>
+
+</form>

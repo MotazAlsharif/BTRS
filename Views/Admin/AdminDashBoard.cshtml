@@ -1,0 +1,186 @@
+﻿@model BRTS.Web.Models.DashBoardViewModel
+@{
+    ViewData["Title"] = "AdminDashBoard";
+    Layout = "~/Views/Shared/AdminLayouts/_AdminLayout.cshtml";
+}
+<style>
+    /* Container */
+    border-radius: 5px;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+
+    /* Interactive Elements */
+    tr:hover {
+        background-color: #e5f5ff;
+    }
+
+</style>
+<h1 style="font-size: xx-large; text-align: center; margin:30px ">Admin DashBoard</h1>
+<table>
+    <caption  style="font-size:xx-large" >Accounts List</caption>
+    <thead>
+        <tr>
+            <th>accountId</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>Age</th>
+            <th>role</th>
+            <th>emailAddress</th>
+            <th>phoneNumber</th>
+            <th>gender</th>
+            <th>userName</th>
+            <th>password</th>
+            <th>status</th>
+            <th>imageId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var acc in Model.accounts)
+        {
+            <tr>
+                <td>@acc.accountId</td>
+                <td>@acc.firstName</td>
+                <td>@acc.lastName</td>
+                <td>@acc.Age</td>
+                <td>@acc.role</td>
+                <td>@acc.emailAddress</td>
+                <td>@acc.phoneNumber</td>
+                <td>@acc.gender</td>
+                <td>@acc.userName</td>
+                <td>@acc.password</td>
+                <td>@acc.status</td>
+                <td>@acc.imageId</td>
+                
+            </tr>
+        }
+     
+    </tbody>
+    
+
+    
+</table>
+<br />
+<table>
+    <caption style="font-size:xx-large" >Trips List</caption>
+    <thead>
+        <tr>
+            <th>TripId</th>
+            <th>TripGoingFrom</th>
+            <th>TripDestination</th>
+            <th>StartDateAndTime</th>
+            <th>EndDateAndTime</th>
+            <th>TripName</th>
+            <th>Drop Trip</th>
+            <th>Edit Trip</th>
+
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trip in Model.trips)
+        {
+            <tr>
+                <td>@trip.TripId</td>
+                <td>@trip.TripGoingFrom</td>
+                <td>@trip.TripDestination</td>
+                <td>@trip.StartDateAndTime</td>
+                <td>@trip.EndDateAndTime</td>
+                <td>@trip.TripName</td>
+                <td>
+                    <form action="/Admin/DropTrip" method="post">
+                        <input type="hidden" name="TripId" value="@trip.TripId" />
+                        <input type="submit" value="DropTrip">
+
+                    </form>
+                </td>
+                <td>
+                    <form action="/Admin/EditTrip" method="post">
+                        <input type="hidden" name="TripId" value="@trip.TripId" />
+                        <input type="submit" value="EditTrip">
+
+                    </form>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+
+
+
+</table>
+<br />
+<table>
+    <caption style="font-size:xx-large" >Buss List</caption>
+    <thead>
+        <tr>
+            <th>BusId</th>
+            <th>TripId</th> 
+            <th>Captin_Id</th>
+            <th>TotalSeats</th>
+            <th>AvailabelSeats</th>
+            <th>Drop Bus</th>
+            <th>Edit Bud</th>
+    
+        </tr>
+    </thead>
+    <tbody>
+      
+        @foreach (var trip in Model.buses)
+        {
+            <tr>
+                <td>@trip.BusId</td>
+                <td>@trip.TripId</td>
+                <td>@trip.Captin_Id</td>
+                <td>@trip.TotalSeats</td>
+                <td>@trip.AvailabelSeats</td>
+                <td>
+                    <form action="/Admin/DropBus" method="post">
+                        <input type="hidden" name="BusId" value="@trip.BusId" />
+                        <input type="submit" value="DropBus">
+
+                    </form>
+                </td>
+                <td>
+                    <form action="/Admin/EditBus" method="post">
+                        <input type="hidden" name="BusId" value="@trip.BusId" />
+                        <input type="submit" value="EditBus">
+
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+
+
+</table>
